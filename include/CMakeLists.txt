@@ -1,3 +1,5 @@
-add_subdirectory(XmlRpc)
 
-set(xmlrcpxx_headers ${xmlrpcxx_hdrs_} PARENT_SCOPE)
+
+
+add_subdirectory(XmlRpc)
+set(xmlrpcxx_headers ${xmlrpcxx_hdrs_} PARENT_SCOPE)

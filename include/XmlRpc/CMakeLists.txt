@@ -15,8 +15,7 @@ base64.h
 
 set(xmlrpc_hdrs)
 foreach(a IN ITEMS ${xmlrpc_headers})
-  set(xmlrpc_hdrs ${xmlrpc_hdrs} include/xmlrpcxx/${a})
+  list(APPEND xmlrpc_hdrs include/XmlRpc/${a})
 endforeach()
 
-
-set(xmlrpc_hdrs_ ${xmlrpc_hdrs} PARENT_SCORE)
+set(xmlrpcxx_hdrs_ ${xmlrpc_hdrs} PARENT_SCOPE)

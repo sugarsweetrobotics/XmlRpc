@@ -15,7 +15,11 @@ XmlRpcValue.cpp
 include_directories(${CMAKE_SOURCE_DIR}/include/${PROJECT_NAME})
 
 
-add_library(${PROJECT_NAME} SHARED ${xmlrpc_srcs})
+foreach(a IN ITEMS ${xmlrpcxx_headers})
+  list(APPEND xmlrpc_hdrs ${CMAKE_SOURCE_DIR}/${a})
+endforeach()
+
+add_library(${PROJECT_NAME} SHARED ${xmlrpc_srcs} ${xmlrpc_hdrs})
 set_target_properties(${PROJECT_NAME}
   PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
