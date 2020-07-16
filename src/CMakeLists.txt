@@ -12,11 +12,11 @@ XmlRpcValue.cpp
 
 
 
-include_directories(${CMAKE_SOURCE_DIR}/include/${PROJECT_NAME})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include/${PROJECT_NAME})
 
 
 foreach(a IN ITEMS ${xmlrpcxx_headers})
-  list(APPEND xmlrpc_hdrs ${CMAKE_SOURCE_DIR}/${a})
+  list(APPEND xmlrpc_hdrs ${PROJECT_SOURCE_DIR}/${a})
 endforeach()
 
 add_library(${PROJECT_NAME} SHARED ${xmlrpc_srcs} ${xmlrpc_hdrs})
