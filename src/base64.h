@@ -11,6 +11,7 @@
 
 #ifndef MAKEDEPEND
 # include <iterator>
+# include <ios>
 #endif
 
 static
