@@ -6,6 +6,16 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 #ifndef MAKEDEPEND
@@ -21,7 +31,7 @@ namespace XmlRpc {
   class XmlRpcServer;
 
   //! Abstract class representing a single RPC method
-  class XmlRpcServerMethod {
+  class XMLRPC_API XmlRpcServerMethod {
   public:
     //! Constructor
     XmlRpcServerMethod(std::string const& name, XmlRpcServer* server = 0);

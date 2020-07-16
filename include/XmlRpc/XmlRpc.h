@@ -19,6 +19,16 @@
 
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 #ifndef MAKEDEPEND
@@ -81,9 +91,9 @@ namespace XmlRpc {
   };
 
   //! Returns log message verbosity. This is short for XmlRpcLogHandler::getVerbosity()
-  int getVerbosity();
+  XMLRPC_API int getVerbosity();
   //! Sets log message verbosity. This is short for XmlRpcLogHandler::setVerbosity(level)
-  void setVerbosity(int level);
+  XMLRPC_API void setVerbosity(int level);
 
 
   //! Version identifier

@@ -6,6 +6,16 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 #ifndef MAKEDEPEND
@@ -30,7 +40,7 @@ namespace XmlRpc {
 
 
   //! A class to handle XML RPC requests
-  class XmlRpcServer : public XmlRpcSource {
+  class XMLRPC_API XmlRpcServer : public XmlRpcSource {
   public:
     //! Create a server object.
     XmlRpcServer();

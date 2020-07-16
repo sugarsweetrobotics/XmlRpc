@@ -5,6 +5,16 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 #ifndef MAKEDEPEND
@@ -24,7 +34,7 @@
 namespace XmlRpc {
 
   //! Utilities for XML parsing, encoding, and decoding and message handlers.
-  class XmlRpcUtil {
+  class XMLRPC_API XmlRpcUtil {
   public:
     // hokey xml parsing
     //! Returns contents between <tag> and </tag>, updates offset to char after </tag>

@@ -6,6 +6,16 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 
@@ -22,7 +32,7 @@ namespace XmlRpc {
   class XmlRpcValue;
 
   //! A class to send XML RPC requests to a server and return the results.
-  class XmlRpcClient : public XmlRpcSource {
+  class XMLRPC_API XmlRpcClient : public XmlRpcSource {
   public:
     // Static data
     static const char REQUEST_BEGIN[];

@@ -6,6 +6,16 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#else // if defined(_MSC_VER)
+#define XMLRPC_API
+
 #endif
 
 #ifndef MAKEDEPEND
@@ -19,7 +29,7 @@ namespace XmlRpc {
 
   //! RPC method arguments and results are represented by Values
   //   should probably refcount them...
-  class XmlRpcValue {
+  class XMLRPC_API XmlRpcValue {
   public:
 
 
@@ -183,7 +193,7 @@ namespace XmlRpc {
 } // namespace XmlRpc
 
 
-std::ostream& operator<<(std::ostream& os, XmlRpc::XmlRpcValue& v);
+XMLRPC_API std::ostream& operator<<(std::ostream& os, XmlRpc::XmlRpcValue& v);
 
 
 #endif // _XMLRPCVALUE_H_
