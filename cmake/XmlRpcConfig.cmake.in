@@ -1,0 +1,10 @@
+set(XMLRPC_VERSION 0.7.0)
+@PACKAGE_INIT@
+
+set_and_check(XmlRpc_INCLUDE_DIR "@PACKAGE_INCLUDE_INSTALL_DIR@")
+set_and_check(XmlRpc_LIB_DIR "@PACKAGE_LIB_INSTALL_DIR@")
+#set_and_check(XmlRpc_SYSCONFIG_DIR "@PACKAGE_SYSCONFIG_INSTALL_DIR@")
+
+set(XmlRpc_LIBRARIES XmlRpc)
+
+check_required_components(XmlRpc)
