@@ -8,7 +8,7 @@
 
 #if defined(_WINDOWS)
 # include <winsock2.h>
-
+# pragma comment(lib, "wsock32.lib")
 # define USE_FTIME
 # if defined(_MSC_VER)
 #  define timeb _timeb
