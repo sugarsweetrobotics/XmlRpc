@@ -6,12 +6,26 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
+
+
+#if defined XMLRPC_API
+#undef XMLRPC_API
 #endif
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+#endif
+
+
 
 namespace XmlRpc {
 
   //! An RPC source represents a file descriptor to monitor
-  class XmlRpcSource {
+  class XMLRPC_API XmlRpcSource {
   public:
     //! Constructor
     //!  @param fd The socket file descriptor to monitor.
