@@ -5,7 +5,7 @@ project(XmlRpc LANGUAGES CXX VERSION 0.7.0)
 set(CMAKE_USE_RELATIVE_PATHS True)
 
 option(BUILD_TESTS "Build Tests" OFF)
-
+option(XmlRpc_Install "Install XmlRpc" On)
 
 add_subdirectory(include)
 add_subdirectory(src)
@@ -23,6 +23,7 @@ set(RUNTIME_INSTALL_DIR bin/ )
 set(LIB_INSTALL_DIR lib/ )
 set(SYSCONFIG_INSTALL_DIR etc/${PROJECT_NAME}/ )
 
+if (XmlRpc_Install)
 INSTALL(TARGETS ${PROJECT_NAME}
         RUNTIME DESTINATION ${RUNTIME_INSTALL_DIR}
         LIBRARY DESTINATION ${LIB_INSTALL_DIR}
@@ -56,3 +57,6 @@ set(CPACK_PACKAGE_INSTALL_DIRECTORY ${PROJECT_NAME})
 SET(CPACK_NSIS_MODIFY_PATH ON)
 
 INCLUDE(CPack)
+
+
+endif()
