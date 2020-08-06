@@ -18,6 +18,9 @@
 #define XMLRPC_API __declspec(dllimport)
 #endif 
 
+#else
+#define  XMLRPC_API
+
 #endif
 
 
