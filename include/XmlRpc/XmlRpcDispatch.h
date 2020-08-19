@@ -6,7 +6,15 @@
 //
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
-#endif
+
+#ifdef XmlRpc_EXPORTS // for DLL build
+#define XMLRPC_API __declspec(dllexport)
+#else // for user
+#define XMLRPC_API __declspec(dllimport)
+#endif 
+
+
+#endif // if defined(_MSC_VER)
 
 #ifndef MAKEDEPEND
 # include <list>
@@ -19,7 +27,7 @@ namespace XmlRpc {
 
   //! An object which monitors file descriptors for events and performs
   //! callbacks when interesting events happen.
-  class XmlRpcDispatch {
+  class XMLRPC_API XmlRpcDispatch {
   public:
     //! Constructor
     XmlRpcDispatch();
