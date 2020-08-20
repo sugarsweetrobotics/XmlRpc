@@ -13,7 +13,8 @@
 #define XMLRPC_API __declspec(dllimport)
 #endif 
 
-
+#else
+#define XMLRPC_API
 #endif // if defined(_MSC_VER)
 
 #ifndef MAKEDEPEND
