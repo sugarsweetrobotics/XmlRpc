@@ -19,6 +19,8 @@ foreach(a IN ITEMS ${xmlrpcxx_headers})
   list(APPEND xmlrpc_hdrs ${PROJECT_SOURCE_DIR}/${a})
 endforeach()
 
+set(CMAKE_DEBUG_POSTFIX d)
+
 add_library(${PROJECT_NAME} SHARED ${xmlrpc_srcs} ${xmlrpc_hdrs})
 set_target_properties(${PROJECT_NAME}
   PROPERTIES
