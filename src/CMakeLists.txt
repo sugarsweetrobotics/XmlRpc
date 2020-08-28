@@ -32,7 +32,9 @@ set_target_properties(${PROJECT_NAME}
 )
 
 if (WIN32)
-install(FILES "${CMAKE_BINARY_DIR}/bin/Debug/${PROJECTNAME}d.dll" "${CMAKE_BINARY_DIR}/lib/Debug/${PROJECTNAME}d.lib"
-  DESTINATION "${CMAKE_BINARY_DIR}/lib")
+# install(FILES "${CMAKE_BINARY_DIR}/lib/Debug/${PROJECT_NAME}d.lib"
+#  DESTINATION "lib/")
+install(FILES "${CMAKE_BINARY_DIR}/bin/Debug/${PROJECT_NAME}d.dll" 
+  DESTINATION "bin/")
 endif (WIN32)
 
