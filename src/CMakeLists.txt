@@ -19,7 +19,9 @@ foreach(a IN ITEMS ${xmlrpcxx_headers})
   list(APPEND xmlrpc_hdrs ${PROJECT_SOURCE_DIR}/${a})
 endforeach()
 
+if (WIN32)
 set(CMAKE_DEBUG_POSTFIX d)
+endif (WIN32)
 
 add_library(${PROJECT_NAME} SHARED ${xmlrpc_srcs} ${xmlrpc_hdrs})
 set_target_properties(${PROJECT_NAME}
@@ -28,4 +30,9 @@ set_target_properties(${PROJECT_NAME}
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
+
+if (WIN32)
+install(FILES "${CMAKE_BINARY_DIR}/bin/Debug/${PROJECTNAME}d.dll" "${CMAKE_BINARY_DIR}/lib/Debug/${PROJECTNAME}d.lib"
+  DESTINATION "${CMAKE_BINARY_DIR}/lib")
+endif (WIN32)
 
